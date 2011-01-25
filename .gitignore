@@ -4,3 +4,7 @@ pkg/
 spec/dummy/db/*.sqlite3
 spec/dummy/log/*.log
 spec/dummy/tmp/
+spec/dummy/config/database.yml
+spec/matchers/
+spec/rails_spec_helper.rb
+
