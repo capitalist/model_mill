@@ -4,6 +4,7 @@ module ModelMill
       source_root File.expand_path('../templates', __FILE__)
 
       argument :namespace, :type => :string, :required => false, :default => nil
+      argument :excludes, :type => :array, :required => false, :default => []
 
       def generate_models
         if namespace
