@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{model_mill}
-  s.version = "0.2.0"
+  s.version = "0.3.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Joe Martinez"]
-  s.date = %q{2011-01-24}
+  s.date = %q{2011-01-25}
   s.description = %q{Generates bare model files that can be used for a migration of legacy data to new models or to get a jump on development for an existing database}
   s.email = %q{joe@joemartinez.name}
   s.extra_rdoc_files = [
@@ -19,6 +19,7 @@ Gem::Specification.new do |s|
   s.files = [
     ".document",
     ".rspec",
+    "CHANGELOG.md",
     "Gemfile",
     "Gemfile.lock",
     "LICENSE.txt",
@@ -33,7 +34,6 @@ Gem::Specification.new do |s|
     "spec/dummy/Rakefile",
     "spec/dummy/app/controllers/application_controller.rb",
     "spec/dummy/app/helpers/application_helper.rb",
-    "spec/dummy/app/models/schema_migration.rb",
     "spec/dummy/app/views/layouts/application.html.erb",
     "spec/dummy/config.ru",
     "spec/dummy/config/application.rb",
@@ -77,7 +77,6 @@ Gem::Specification.new do |s|
   s.test_files = [
     "spec/dummy/app/controllers/application_controller.rb",
     "spec/dummy/app/helpers/application_helper.rb",
-    "spec/dummy/app/models/schema_migration.rb",
     "spec/dummy/config/application.rb",
     "spec/dummy/config/boot.rb",
     "spec/dummy/config/environment.rb",
