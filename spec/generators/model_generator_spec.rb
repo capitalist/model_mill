@@ -42,7 +42,7 @@ describe 'models_generator' do
 
     it "generates a base model for the namespace" do
       GeneratorSpec.with_generator do |g|
-        g.run_generator @namespace
+        g.run_generator [ "--namespace=#{@namespace}" ]
         g.should generate_file("app/models/#{@namespace}")
         g.should generate_file("app/models/#{@namespace}/base.rb")
         file_contents("app/models/#{@namespace}/base.rb").should match(/class #{@namespace.camelize}::Base < ActiveRecord::Base/)
@@ -51,7 +51,7 @@ describe 'models_generator' do
 
     it "generates a model for each table" do
       GeneratorSpec.with_generator do |g|
-        g.run_generator @namespace
+        g.run_generator [ "--namespace=#{@namespace}" ]
         @tables.each do |tn|
           g.should generate_file("app/models/#{@namespace}/#{tn.singularize.underscore}.rb")
         end
