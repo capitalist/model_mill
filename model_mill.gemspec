@@ -5,7 +5,7 @@
 
 Gem::Specification.new do |s|
   s.name = %q{model_mill}
-  s.version = "0.0.0"
+  s.version = "0.1.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Joe Martinez"]
@@ -101,7 +101,6 @@ Gem::Specification.new do |s|
     "spec/matchers/have_class_method.rb",
     "spec/matchers/have_method.rb",
     "spec/model_mill_spec.rb",
-    "spec/rails_spec_helper.rb",
     "spec/spec_helper.rb"
   ]
 
