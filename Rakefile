@@ -15,8 +15,8 @@ Jeweler::Tasks.new do |gem|
   gem.name = "model_mill"
   gem.homepage = "http://github.com/capitalist/model_mill"
   gem.license = "MIT"
-  gem.summary = %Q{TODO: one-line summary of your gem}
-  gem.description = %Q{TODO: longer description of your gem}
+  gem.summary = %Q{Generates ActiveRecord models from existing database tables.}
+  gem.description = %Q{Generates bare model files that can be used for a migration of legacy data to new models or to get a jump on development for an existing database}
   gem.email = "joe@joemartinez.name"
   gem.authors = ["Joe Martinez"]
   # Include your dependencies below. Runtime dependencies are required when using your gem,

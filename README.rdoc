@@ -1,6 +1,10 @@
 = model_mill
 
-Description goes here.
+== What it Does
+
+This bad boy will crank out models based on tables in an existing database.
+
+If you provide the namespace option, it will generate models in that namespace that inherit from a common base class. What's more, that base class will get it's connection information from the namespace name in database.yml. This means you can connect to both database at once to migrate data from one to the other.
 
 == Contributing to model_mill
  
