@@ -14,6 +14,7 @@ module ModelMill
         discovered_tables.each do |table_name|
           @model_name = model_name_from_table_name table_name
           @model_file_name = model_file_name_from_table_name table_name
+          @columns = connection.columns(table_name)
           template 'model.rb', "app/models/#{options[:namespace] ? options[:namespace]+'/' : ''}#{@model_file_name}.rb"
         end
         puts %Q(config.autoload_paths += %W(\#{config.root}/app/models/#{options[:namespace].downcase})) if options[:namespace]

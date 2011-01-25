@@ -65,6 +65,10 @@ describe 'models_generator' do
         tests ModelMill::Generators::ModelsGenerator
       end
       @tables = %w(users widgets)
+      @table_columns = {
+        'users'   => %w(created_at email first_name id last_name updated_at),
+        'widgets' => %w(color created_at id quantity updated_at)
+      }
     end
 
     after :each do
@@ -79,6 +83,16 @@ describe 'models_generator' do
         @tables.each do |tn|
           g.should generate_file("app/models/#{tn.singularize.underscore}.rb")
           file_contents("app/models/#{tn.singularize.underscore}.rb").should match(/class #{tn.singularize.camelize} < ActiveRecord::Base/)
+        end
+      end
+    end
+
+    it 'adds attr_accessible declaration for all columns' do
+      GeneratorSpec.with_generator do |g|
+        g.run_generator
+        @tables.each do |tn|
+          file_contents("app/models/#{tn.singularize.underscore}.rb").
+            should match(/attr_accessible #{@table_columns[tn].sort.map{|c| ":#{c}"}.join(', ')}/)
         end
       end
     end
