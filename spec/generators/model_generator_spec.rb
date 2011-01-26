@@ -67,13 +67,13 @@ describe 'models_generator' do
       @tables = %w(users widgets)
       @table_columns = {
         'users'   => %w(created_at email first_name id last_name updated_at),
-        'widgets' => %w(color created_at id quantity updated_at)
+        'widgets' => %w(color created_at id quantity updated_at user_id)
       }
     end
 
     after :each do
       @tables.each do |tn|
-        FileUtils.rm_r File.expand_path("app/models/#{tn.singularize.underscore}.rb", ::Rails.root)
+        #FileUtils.rm_r File.expand_path("app/models/#{tn.singularize.underscore}.rb", ::Rails.root)
       end
     end
 
@@ -94,6 +94,14 @@ describe 'models_generator' do
           file_contents("app/models/#{tn.singularize.underscore}.rb").
             should match(/attr_accessible #{@table_columns[tn].sort.map{|c| ":#{c}"}.join(', ')}/)
         end
+      end
+    end
+
+    it 'adds associations' do
+      GeneratorSpec.with_generator do |g|
+        g.run_generator
+        file_contents("app/models/widget.rb").should match(/belongs_to :user/)
+        file_contents("app/models/user.rb").should match(/has_many :widgets/)
       end
     end
   end

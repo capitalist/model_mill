@@ -10,6 +10,7 @@ class CreateSomeTables < ActiveRecord::Migration
     create_table :widgets, :force => true do |t|
       t.integer :quantity, :default => 0
       t.string :color
+      t.references :user
       t.timestamps
     end
   end

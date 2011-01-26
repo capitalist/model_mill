@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(:version => 20110125024703) do
   create_table "widgets", :force => true do |t|
     t.integer  "quantity",   :default => 0
     t.string   "color"
+    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
